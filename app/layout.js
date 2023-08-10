@@ -1,4 +1,4 @@
-import './globals.css';
+import 'app/globals.css';
 import { Amita } from 'next/font/google';
 
 const amita = Amita({ subsets: ['latin'], weight: '400' });
