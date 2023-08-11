@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Page() {
-  return <h1>Services</h1>;
+  return <div className='flex flex-col'></div>;
 }

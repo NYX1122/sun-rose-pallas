@@ -1,7 +1,5 @@
 import Image from 'next/image';
 
-import Button from '@/components/button';
-
 import chandler from '@/images/Chandler.jpg';
 import whiteSunflower from '@/images/White_Sunflower.svg';
 import sunflowerLeaf from '@/images/Sunflower_Leaf.svg';
