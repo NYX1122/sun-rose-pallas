@@ -4,20 +4,30 @@ import Button from '@/components/button';
 
 import chandler from '@/images/Chandler.jpg';
 import whiteSunflower from '@/images/White_Sunflower.svg';
+import sunflowerLeaf from '@/images/Sunflower_Leaf.svg';
 
 export default function Page() {
   return (
     <>
+      <div className='absolute top-6 left-12 rotate-[135deg]'>
+        <Image src={sunflowerLeaf} alt='Sunflower leaf design.'></Image>
+      </div>
+      <div className='absolute top-64 left-2 rotate-[225deg]'>
+        <Image src={sunflowerLeaf} alt='Sunflower leaf design.'></Image>
+      </div>
+      <div className='absolute top-[22rem] right-2 rotate-45'>
+        <Image src={sunflowerLeaf} alt='Sunflower leaf design.'></Image>
+      </div>
       <div className='absolute -top-10 -left-8'>
         <Image src={whiteSunflower} alt='Sunflower design.'></Image>
       </div>
       <div className='absolute top-44'>
         <Image src={whiteSunflower} alt='Sunflower design.'></Image>
       </div>
-      <div className='absolute bottom-32 right-8'>
+      <div className='absolute top-96 right-2'>
         <Image src={whiteSunflower} alt='Sunflower design.'></Image>
       </div>
-      <div className='absolute top-32 -right-12'>
+      <div className='absolute top-36 -right-12'>
         <Image src={whiteSunflower} alt='Sunflower design.'></Image>
       </div>
       <div className='flex flex-col gap-5'>
