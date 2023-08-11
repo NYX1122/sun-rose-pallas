@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import Button from '@/components/button';
 
-import orangeOwl from '@/images/orange_owl.jpg';
+import orangeOwl from '@/images/Orange_Owl.jpg';
 import leaf from '@/images/Leaf.svg';
 import slideShowOne from '@/images/Slideshow-1.png';
 import heartFrame from '@/images/Heart_Frame.svg';
