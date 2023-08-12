@@ -3,7 +3,7 @@ import Header from '@/components/header';
 
 export default function InformationLayout({ children }) {
   return (
-    <section className='h-screen relative overflow-x-clip'>
+    <section className='h-screen relative overflow-x-hidden'>
       <div className='absolute w-12 right-0 mt-2 mr-6'>
         <HomeButton />
       </div>
