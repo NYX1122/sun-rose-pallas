@@ -2,36 +2,18 @@
 
 import { useState } from 'react';
 
+import {
+  getEventForDate,
+  monthArray,
+  weekDayArray,
+} from '@/utilities/eventData';
+
 import Image from 'next/image';
+import Link from 'next/link';
 
 import sunflowerLeaf from '@/images/Sunflower_Leaf.svg';
 
 export default function Calendar() {
-  const monthArray = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  const weekDayArray = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
@@ -42,7 +24,12 @@ export default function Calendar() {
     const daysOfWeek = weekDayArray.map((dayName, dayIndex) => {
       const offsetDayIndex = weekIndex * 7 + dayIndex - firstDay;
       const dayNumber = offsetDayIndex + 1;
-      return dayNumber > 0 && dayNumber <= daysInMonth && dayNumber;
+      if (dayNumber > 0 && dayNumber <= daysInMonth) {
+        const event = getEventForDate(selectedYear, selectedMonth, dayNumber);
+        return { identifier: dayNumber, event: event };
+      } else {
+        return {};
+      }
     });
 
     return {
@@ -70,7 +57,7 @@ export default function Calendar() {
   };
 
   return (
-    <div className='w-full border-4 border-white rounded-xl flex flex-col'>
+    <>
       <div className='w-full grid grid-cols-3 py-3'>
         <button onClick={prevMonth} className='flex justify-center'>
           <div className='rotate-[270deg] w-10'>
@@ -97,28 +84,66 @@ export default function Calendar() {
             </div>
           ))}
         </div>
-        <div className='grid grid-rows-5'>
+        <div
+          className='grid'
+          style={{
+            gridTemplateRows: `repeat(${calendarArray.length}, minmax(0, 1fr))`,
+          }}
+        >
           {calendarArray.map((week, weekIndex) => (
             <div key={weekIndex} className='grid grid-cols-7'>
               {week.days.map((day, dayIndex) =>
-                day === 1 ? (
+                day.event ? (
+                  <Link
+                    className='m-1'
+                    key={dayIndex}
+                    href={`/information/events/${selectedMonth + 1}-${
+                      day.identifier
+                    }-${selectedYear}`}
+                  >
+                    <button className='w-full'>
+                      {day.identifier === 1 ? (
+                        <div
+                          className='border-2 border-peaceful-orange bg-peaceful-orange bg-rounded-lg px-1'
+                          style={{
+                            gridColumnStart: firstDay + 1,
+                          }}
+                        >
+                          <p className='text-center text-white text-2xl whitespace-nowrap'>
+                            {day.identifier}
+                          </p>
+                        </div>
+                      ) : (
+                        day.identifier && (
+                          <div className='border-2 border-peaceful-orange bg-peaceful-orange rounded-lg px-1'>
+                            <p className='text-center text-white text-2xl whitespace-nowrap'>
+                              {day.identifier}
+                            </p>
+                          </div>
+                        )
+                      )}
+                    </button>
+                  </Link>
+                ) : day.identifier === 1 ? (
                   <div
                     key={dayIndex}
                     className='border-2 border-peaceful-orange rounded-lg m-1 px-1'
-                    style={{ gridColumnStart: firstDay + 1 }}
+                    style={{
+                      gridColumnStart: firstDay + 1,
+                    }}
                   >
                     <p className='text-center text-peaceful-orange text-2xl whitespace-nowrap'>
-                      {day}
+                      {day.identifier}
                     </p>
                   </div>
                 ) : (
-                  day && (
+                  day.identifier && (
                     <div
                       key={dayIndex}
                       className='border-2 border-peaceful-orange rounded-lg m-1 px-1'
                     >
                       <p className='text-center text-peaceful-orange text-2xl whitespace-nowrap'>
-                        {day}
+                        {day.identifier}
                       </p>
                     </div>
                   )
@@ -128,6 +153,6 @@ export default function Calendar() {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -59,7 +59,9 @@ export default function Paragraph({
   return (
     <div
       style={{ maxHeight: parentHeight }}
-      className={`overflow-y-auto border-4 border-white rounded-2xl p-2 bg-[#00000020] flex flex-col gap-2`}
+      className={
+        'overflow-y-auto border-4 border-white rounded-2xl p-2 bg-[#00000020] flex flex-col gap-2'
+      }
       ref={parentRef}
     >
       <div className='flex flex-col gap-2 max-h-full overflow-y-auto pr-2'>
