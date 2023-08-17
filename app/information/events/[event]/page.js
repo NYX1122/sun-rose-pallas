@@ -89,7 +89,13 @@ export default function Page({ params }) {
     day
   )}, ${event.time}`;
 
-  const linkArray = [{ title: 'Back', href: '/information/events' }];
+  const linkArray = [
+    { title: 'Back', href: '/information/events' },
+    {
+      title: 'Tickets',
+      href: 'https://chandlera8uf.setmore.com/chandlerreddington/bookclass',
+    },
+  ];
 
   const designDecider = (event) => {
     if (event.name) {
