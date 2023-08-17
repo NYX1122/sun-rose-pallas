@@ -1,3 +1,12 @@
+import Image from 'next/image';
+
+import Map from '@/components/location/map';
+
 export default function Page() {
-  return <h1>Location</h1>;
+  return (
+    <div>
+      <Map />
+      <div></div>
+    </div>
+  );
 }
