@@ -18,7 +18,7 @@ export default function Map() {
   ];
   const center = useMemo(() => markers[0].location, []);
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
   });
 
   if (!isLoaded)
