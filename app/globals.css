@@ -52,3 +52,22 @@ h6 {
   background: #ffffff;
   border-radius: 25px;
 }
+
+/* Hides the "Terms of Service" link */
+.gm-style .gm-style-cc {
+  display: none;
+}
+
+/* Hides the "Map Data" link */
+.gm-style .gm-style-mtc {
+  display: none;
+}
+
+/* Hides the "Keyboard shortcuts" link */
+.gm-style .gm-cc-lc {
+  display: none;
+}
+
+.gm-style img[alt="Google"] {
+  display: none
+}
