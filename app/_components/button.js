@@ -2,7 +2,7 @@ export default function Button({ text }) {
   return (
     <button
       type='button'
-      className='px-1 py=.5 m-1 bg-white rounded-md text-peaceful-orange text-xl'
+      className='px-1 py=.5 bg-white rounded-md text-peaceful-orange text-xl md:text-3xl md:p-2'
     >
       {text}
     </button>
