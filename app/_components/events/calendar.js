@@ -58,27 +58,45 @@ export default function Calendar() {
 
   return (
     <>
-      <div className='w-full grid grid-cols-3 py-3'>
-        <button onClick={prevMonth} className='flex justify-center'>
-          <div className='rotate-[270deg] w-10'>
-            <Image src={sunflowerLeaf} alt='Sunflower leaf design.' />
+      <div className='w-full grid grid-cols-3 py-3 md:py-5'>
+        <button
+          onClick={prevMonth}
+          className='flex justify-center items-center'
+        >
+          <div className='rotate-[270deg]'>
+            <Image
+              src={sunflowerLeaf}
+              alt='Sunflower leaf design.'
+              className='drop-shadow-svg w-10 md:w-16'
+            />
           </div>
         </button>
-        <div className='flex flex-col items-center'>
-          <h3 className='text-2xl text-white'>{selectedYear}</h3>
-          <h3 className='text-2xl text-white'>{monthArray[selectedMonth]}</h3>
+        <div className='flex flex-col items-center justify-center'>
+          <h3 className='text-2xl text-white drop-shadow-visibility md:text-4xl'>
+            {selectedYear}
+          </h3>
+          <h3 className='text-2xl text-white drop-shadow-visibility md:text-4xl'>
+            {monthArray[selectedMonth]}
+          </h3>
         </div>
-        <button onClick={nextMonth} className='flex justify-center'>
-          <div className='rotate-90 w-10'>
-            <Image src={sunflowerLeaf} alt='Sunflower leaf design.' />
+        <button
+          onClick={nextMonth}
+          className='flex justify-center items-center'
+        >
+          <div className='rotate-90'>
+            <Image
+              src={sunflowerLeaf}
+              alt='Sunflower leaf design.'
+              className='drop-shadow-svg w-10 md:w-16'
+            />
           </div>
         </button>
       </div>
-      <div className='bg-white flex flex-col'>
-        <div className='grid grid-cols-7 pt-2'>
+      <div className='bg-white flex flex-col p-2 rounded-b-xl md:pb-3 px-3'>
+        <div className='grid grid-cols-7 md:pb-2'>
           {weekDayArray.map((item, index) => (
             <div key={index}>
-              <h4 className='text-2xl text-peaceful-orange text-center'>
+              <h4 className='text-2xl text-peaceful-orange text-center drop-shadow-visibilityOrange md:text-4xl'>
                 {item[0]}
               </h4>
             </div>
@@ -104,19 +122,19 @@ export default function Calendar() {
                     <button className='w-full'>
                       {day.identifier === 1 ? (
                         <div
-                          className='border-2 border-peaceful-orange bg-peaceful-orange bg-rounded-lg px-1'
+                          className='border-2 border-peaceful-orange bg-peaceful-orange bg-rounded-lg px-1 shadow-eventDay'
                           style={{
                             gridColumnStart: firstDay + 1,
                           }}
                         >
-                          <p className='text-center text-white text-2xl whitespace-nowrap'>
+                          <p className='text-center text-white text-2xl whitespace-nowrap md:text-4xl'>
                             {day.identifier}
                           </p>
                         </div>
                       ) : (
                         day.identifier && (
-                          <div className='border-2 border-peaceful-orange bg-peaceful-orange rounded-lg px-1'>
-                            <p className='text-center text-white text-2xl whitespace-nowrap'>
+                          <div className='border-2 border-peaceful-orange bg-peaceful-orange rounded-lg px-1 shadow-eventDay'>
+                            <p className='text-center text-white text-2xl whitespace-nowrap md:text-4xl'>
                               {day.identifier}
                             </p>
                           </div>
@@ -132,7 +150,7 @@ export default function Calendar() {
                       gridColumnStart: firstDay + 1,
                     }}
                   >
-                    <p className='text-center text-peaceful-orange text-2xl whitespace-nowrap'>
+                    <p className='text-center text-peaceful-orange text-2xl whitespace-nowrap md:text-4xl'>
                       {day.identifier}
                     </p>
                   </div>
@@ -142,7 +160,7 @@ export default function Calendar() {
                       key={dayIndex}
                       className='border-2 border-peaceful-orange rounded-lg m-1 px-1'
                     >
-                      <p className='text-center text-peaceful-orange text-2xl whitespace-nowrap'>
+                      <p className='text-center text-peaceful-orange text-2xl whitespace-nowrap md:text-4xl'>
                         {day.identifier}
                       </p>
                     </div>

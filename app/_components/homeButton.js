@@ -6,7 +6,11 @@ import home from '@/images/Home.svg';
 export default function HomeButton() {
   return (
     <Link href='/'>
-      <Image alt='House graphic.' src={home}></Image>
+      <Image
+        alt='House graphic.'
+        src={home}
+        className='drop-shadow-svg'
+      ></Image>
     </Link>
   );
 }

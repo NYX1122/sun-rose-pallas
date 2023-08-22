@@ -1,14 +1,15 @@
 import HomeButton from '@/components/homeButton';
 import Header from '@/components/header';
+import Background from '@/components/background';
 
 export default function InformationLayout({ children }) {
   return (
-    <section className='h-screen relative overflow-x-hidden'>
-      <div className='absolute w-12 right-0 mt-2 mr-6'>
+    <section className='h-screen relative overflow-x-hidden flex flex-col'>
+      <div className='absolute w-12 right-0 mt-5 mr-5 md:w-20 md:mt-8 md:mr-8'>
         <HomeButton />
       </div>
       <Header />
-      <div className='p-4'>{children}</div>
+      <Background>{children}</Background>
     </section>
   );
 }

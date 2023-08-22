@@ -23,10 +23,10 @@ export default function Map() {
 
   if (!isLoaded)
     return (
-      <div className='w-full h-full border-4 border-white rounded-xl overflow-hidden bg-white'></div>
+      <div className='w-full h-full rounded-xl overflow-hidden bg-white shadow-container'></div>
     );
   return (
-    <div className='w-full h-full border-4 border-white rounded-xl overflow-hidden'>
+    <div className='w-full h-full rounded-xl overflow-hidden shadow-container'>
       <GoogleMap
         mapTypeId={null}
         options={{

@@ -18,6 +18,8 @@ export default function Home() {
     { text: 'Location', url: '/information/location' },
   ];
 
+  const leafArray = Array(10).fill();
+
   return (
     <main className='h-screen flex flex-col'>
       <div className='bg-white h-fit py-3 px-14 flex flex-col items-center gap-3'>
@@ -28,75 +30,26 @@ export default function Home() {
             quality={100}
           ></Image>
         </div>
-        <h1 className='text-2xl md:text-3xl text-peaceful-orange'>
+        <h1 className='text-2xl md:text-4xl text-peaceful-orange'>
           Sun Rose Pallas Healing
         </h1>
       </div>
       <div className='grow flex flex-col items-center justify-between mb-4'>
         <div className='w-full flex justify-evenly'>
-          <Image
-            className='w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='hidden sm:block w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='hidden sm:block w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='hidden sm:block w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
-          <Image
-            className='hidden sm:block w-8 md:w-10'
-            alt='Leaf design.'
-            src={leaf}
-            quality={100}
-          ></Image>
+          {leafArray.map((_, index) => (
+            <Image
+              key={index}
+              className={`w-8 drop-shadow-svg md:w-10 ${
+                index >= 6 ? 'hidden sm:block' : ''
+              }`}
+              alt='Leaf design.'
+              src={leaf}
+              quality={100}
+            ></Image>
+          ))}
         </div>
         <div className='min-h-[500px] grow flex flex-col items-center justify-evenly md:w-[85%] md:min-h-[750px]'>
-          <div className='border-2 rounded-xl p-2 border-white mx-4 md:mx-20 md:border-4'>
+          <div className='rounded-xl p-2 mx-4 bg-black/50 shadow-container md:mx-20'>
             <p className='text-center text-white text-sm md:text-xl'>
               Come relax, recharge, and regroup at Sun Rose, where your physical
               and spiritual needs will be cared for. Allow us to help you
@@ -107,7 +60,7 @@ export default function Home() {
           <div className='h-fit relative flex items-center justify-center'>
             <div className='w-full absolute flex justify-center'>
               <Image
-                className='w-[100%]'
+                className='w-[100%] drop-shadow-svg'
                 alt='Heart design.'
                 src={heartFrame}
                 quality={100}
@@ -124,7 +77,7 @@ export default function Home() {
           </div>
           <div className='flex justify-center md:items-center'>
             <Image
-              className='md:w-[250px]'
+              className='md:w-[250px] drop-shadow-svg'
               alt='Sunflower design.'
               src={sunflower}
               quality={100}
@@ -137,7 +90,7 @@ export default function Home() {
               ))}
             </div>
             <Image
-              className='md:w-[250px]'
+              className='md:w-[250px] drop-shadow-svg'
               alt='Sunflower design.'
               src={sunflower}
               quality={100}

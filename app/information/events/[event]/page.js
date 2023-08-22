@@ -13,7 +13,6 @@ import sunEvent from '@/images/Sun_Event.svg';
 import heartEvent from '@/images/Heart_Event.svg';
 import fullMoonEvent from '@/images/Full_Moon_Event.svg';
 import newMoonEvent from '@/images/New_Moon_Event.svg';
-import henna from '@/images/Henna.svg';
 
 export default function Page({ params }) {
   const childRef = useRef(null);
@@ -106,45 +105,53 @@ export default function Page({ params }) {
   };
 
   return (
-    <div className='pt-3 relative overflow-hidden'>
-      <div className='absolute w-48 -right-28 -top-24'>
-        <Image src={henna} alt='Beautiful henna graphic' />
-      </div>
-      <div className='absolute w-48 -left-28 -top-24'>
-        <Image src={henna} alt='Beautiful henna graphic' />
-      </div>
-      <div className='flex flex-col items-center gap-3 pb-3'>
-        <h2 className='text-white text-sm text-center'>{formattedDate}</h2>
-        <div className='border-2 p-4'>
-          <Image src={designDecider(event)} alt='Astral design.' />
+    <div className='p-3 flex flex-col gap-3 md:p-6 md:gap-6'>
+      <div className='flex flex-col items-center gap-3 md:gap-6'>
+        <h2 className='text-white text-lg text-center drop-shadow-visibility md:text-2xl'>
+          {formattedDate}
+        </h2>
+        <div className='border-2 border-white p-4 md:border-4'>
+          <Image
+            src={designDecider(event)}
+            alt='Astral design.'
+            className='drop-shadow-svg md:w-40'
+          />
         </div>
-        <h1 className='text-white text-xl'>
+        <h1 className='text-white text-xl drop-shadow-visibility md:text-4xl'>
           {event.name ? event.name : event.event.name}
         </h1>
       </div>
       <div
         style={{ maxHeight: parentHeight }}
-        className='p-2 overflow-y-auto outline outline-4 outline-white rounded-t-2xl rounded-b-lg bg-[#00000025] flex flex-col gap-2'
+        className='p-2 overflow-y-auto rounded-xl bg-black/50 flex flex-col shadow-container md:p-3'
         ref={parentRef}
       >
         <div className='overflow-y-auto p-1 flex flex-col gap-2'>
-          <p className='text-white text-center text-sm' ref={childRef}>
+          <p
+            className='text-white text-center text-sm md:text-lg'
+            ref={childRef}
+          >
             {event.event.shortDescription}
           </p>
 
           {event.event.longDescriptions.map((item, index) => (
-            <p key={index} className='text-white text-center text-sm'>
+            <p
+              key={index}
+              className='text-white text-center text-sm md:text-lg'
+            >
               {item}
             </p>
           ))}
 
-          <p className='text-white text-center text-sm'>
+          <p className='text-white text-center text-sm md:text-lg'>
             {event.event.contact}
           </p>
-          <p className='text-white text-center text-sm'>{event.event.price}</p>
+          <p className='text-white text-center text-sm md:text-lg'>
+            {event.event.price}
+          </p>
         </div>
       </div>
-      <div className='flex justify-center pt-3 pb-2'>
+      <div className='flex gap-3 justify-center'>
         {linkArray.map((item, index) => (
           <Link href={item.href} key={index}>
             <Button text={item.title} />

@@ -5,46 +5,43 @@ import whiteSunflower from '@/images/White_Sunflower.svg';
 import sunflowerLeaf from '@/images/Sunflower_Leaf.svg';
 
 export default function Page() {
+  const leafGraphicArray = [
+    'absolute top-6 left-12 rotate-[135deg] md:hidden',
+    'absolute top-64 left-2 rotate-[225deg] md:hidden',
+    'absolute top-[22rem] right-2 rotate-45 md:hidden',
+    'absolute -top-10 -left-8 md:hidden',
+    'absolute top-44 md:hidden',
+    'absolute top-96 right-2 md:hidden',
+    'absolute top-36 -right-12 md:hidden',
+  ];
   return (
-    <>
-      <div className='absolute top-6 left-12 rotate-[135deg]'>
-        <Image src={sunflowerLeaf} alt='Sunflower leaf design.'></Image>
-      </div>
-      <div className='absolute top-64 left-2 rotate-[225deg]'>
-        <Image src={sunflowerLeaf} alt='Sunflower leaf design.'></Image>
-      </div>
-      <div className='absolute top-[22rem] right-2 rotate-45'>
-        <Image src={sunflowerLeaf} alt='Sunflower leaf design.'></Image>
-      </div>
-      <div className='absolute -top-10 -left-8'>
-        <Image src={whiteSunflower} alt='Sunflower design.'></Image>
-      </div>
-      <div className='absolute top-44'>
-        <Image src={whiteSunflower} alt='Sunflower design.'></Image>
-      </div>
-      <div className='absolute top-96 right-2'>
-        <Image src={whiteSunflower} alt='Sunflower design.'></Image>
-      </div>
-      <div className='absolute top-36 -right-12'>
-        <Image src={whiteSunflower} alt='Sunflower design.'></Image>
-      </div>
-      <div className='flex flex-col gap-5'>
-        <div className='border-4 border-white rounded-3xl p-2'>
-          <p className='text-white text-sm text-center'>
+    <div className='md:w-[500px]'>
+      <div className='flex flex-col gap-4 h-full justify-around'>
+        {leafGraphicArray.map((item, index) => (
+          <div key={index} className={item}>
+            <Image
+              src={index <= 2 ? sunflowerLeaf : whiteSunflower}
+              alt={index <= 2 ? 'Sunflower leaf design.' : 'Sunflower design.'}
+              className='drop-shadow-svg'
+            ></Image>
+          </div>
+        ))}
+        <div className='border-4 border-white rounded-3xl shadow-container p-2 md:bg-peaceful-orange'>
+          <p className='text-white text-sm text-center md:text-xl'>
             Hey, thank you for checking out my website. I’m Chandler! And here
             is a little bit about me, and how Sun Rose Pallas Healing Came to
             be.
           </p>
         </div>
-        <div className='mx-16'>
+        <div className='mx-16 md:mx-28'>
           <Image
             alt="Chandler Reddington's portrait."
             src={chandler}
-            className='border-4 border-white rounded-3xl'
+            className='border-4 border-white rounded-3xl shadow-container'
           ></Image>
         </div>
-        <div className='border-4 border-white rounded-3xl p-2'>
-          <p className='text-white text-center text-xs'>
+        <div className='rounded-xl shadow-container p-2 bg-black/50 md:bg-peaceful-orange/[.85] overflow-hidden md:p-3'>
+          <p className='text-white text-center text-xs overflow-y-scroll h-full md:text-lg md:p-1'>
             My spiritual journey started a long time ago. Ever since I was
             younger, I’ve had a strong sense of my soul, and the life force that
             is within all of us. I have always been very interested in the
@@ -100,6 +97,6 @@ export default function Page() {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }

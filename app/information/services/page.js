@@ -52,14 +52,20 @@ export default function Page() {
   ];
 
   return (
-    <div className='h-fit flex flex-col gap-6'>
+    <div className='h-fit flex flex-col gap-6 md:w-[600px] md:justify-evenly md:gap-0 md:h-full'>
       {serviceArray.map((item) => (
-        <div className='flex flex-col items-center gap-2'>
-          <h2 className='text-lg text-white'>{item.title}</h2>
-          <div className='flex justify-center gap-2'>
+        <div className='flex flex-col items-center gap-2 md:rounded-xl md:p-4 md:bg-peaceful-orange/[.85] md:shadow-container'>
+          <h2 className='text-lg text-white md:text-xl drop-shadow-visibility'>
+            {item.title}
+          </h2>
+          <div className='flex justify-center gap-2 md:gap-4'>
             {item.graphicFirst ? (
               <>
-                <Image src={item.graphic} alt={item.graphicAlt} />
+                <Image
+                  src={item.graphic}
+                  alt={item.graphicAlt}
+                  className='drop-shadow-svg'
+                />
                 <Paragraph
                   shortDescription={item.shortDescription}
                   description={item.description}
@@ -73,7 +79,11 @@ export default function Page() {
                   description={item.description}
                   graphicFirst={item.graphicFirst}
                 />
-                <Image src={item.graphic} alt={item.graphicAlt} />
+                <Image
+                  src={item.graphic}
+                  alt={item.graphicAlt}
+                  className='drop-shadow-svg'
+                />
               </>
             )}
           </div>

@@ -7,7 +7,7 @@ export default function Header() {
 
   return (
     <div className='w-fill text-center pt-10'>
-      <h1 className='text-3xl text-white'>
+      <h1 className='text-3xl text-white md:text-5xl'>
         {segment === 'about'
           ? 'About Me'
           : segment === 'services'
